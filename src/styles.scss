@@ -1,0 +1,59 @@
+/* You can add global styles to this file, and also import other style files */
+@import './assets/sass/_mixins.scss';
+
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-size: 62.5%;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+:root {
+  --color-primary: #1d1e22;
+  --color-text-primary: #fefdfe;
+  --color-text-secondary: #d5dee3;
+  --color-button-primary: #d70903;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: var(--color-primary);
+}
+
+
+
+.container {
+  max-width: 120rem;
+  width: 100%;
+  margin: 0 auto;
+  @include media-query-mnw(1700px) {
+    max-width: 160rem;
+  }
+  @include media-query-mxw(1024px) {
+    max-width: 80rem;
+  }
+  @include media-query-mxw(768px) {
+    max-width: 60rem;
+  }
+  @include media-query-mxw(433px) {
+    max-width: 24rem;
+  }
+}
+
+#trailer-modal {
+  &,
+  & * {
+    background-color: transparent;
+  }
+  background-color: var(--color-primary);
+  & .mdc-dialog__surface {
+    border-radius: 7px;
+  }
+}

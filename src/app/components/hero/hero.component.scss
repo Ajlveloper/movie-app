@@ -1,0 +1,101 @@
+@import "../../../assets/sass/mixins.scss";
+.hero {
+  width: 100%;
+  height: 90vh;
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.hero::before {
+  display: block;
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: linear-gradient(180deg, #000000bc 20%, #00000055 80%);
+}
+
+.hero__content-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding-top: 3rem;
+}
+
+.hero__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5rem;
+  height: 80%;
+  padding: 0 4rem;
+  position: relative;
+}
+
+.hero__description {
+  display: flex;
+  flex-direction: column;
+  max-width: 60rem;
+  width: 100%;
+  height: 100%;
+  flex: 1;
+}
+.description__year {
+  font-size: 2rem;
+  font-weight: normal;
+  margin-bottom: 1.6rem;
+}
+
+.description__title {
+  font-size: 5rem;
+  font-weight: bold;
+  margin-bottom: 7rem;
+
+  @include media-query-mxw(770px) {
+    margin-bottom: 3rem;
+    font-size: 3rem;
+  }
+}
+
+.description__overview {
+  font-size: 2.5rem;
+  font-weight: 600;
+  line-height: 1.7;
+  @include media-query-mxw(770px) {
+    font-size: 2.4rem;
+  }
+}
+
+.description__text {
+  text-align: end;
+  color: var(--color-text-secondary);
+  text-shadow: 2px 2px black;
+}
+
+.description__trailer-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex: 1;
+}
+
+.hero__poster {
+  height: 100%;
+  width: 48rem;
+  flex: 1;
+  @include media-query-mxw(433px) {
+    display: none;
+  }
+}
+
+.hero__poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 1.5rem;
+}

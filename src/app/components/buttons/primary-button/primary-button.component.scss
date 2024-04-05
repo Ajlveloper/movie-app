@@ -1,0 +1,33 @@
+@import '../../../../assets/sass/mixins.scss';
+
+:host ::ng-deep .mat-mdc-unelevated-button {
+   padding: 2rem;
+   border-radius: 3rem;
+   & .mdc-button__label, & .mat-icon {
+       color: var(--color-text-secondary);
+   }
+}
+
+:host ::ng-deep .mat-mdc-unelevated-button:not(:disabled) {
+    background-color: var(--color-button-primary);
+}
+
+:host ::ng-deep .font-large  {
+    font-size: 3rem;
+    padding: 3rem;
+    & .mat-icon {
+        font-size: 3rem;
+        height: 3rem;
+        width: 3rem;
+    }
+    @include media-query-mxw(433px) {
+        font-size: 2rem;
+    }
+}
+
+:host ::ng-deep .icon-only {
+    padding: auto;
+    height: auto;
+    width: max-content;
+}
+

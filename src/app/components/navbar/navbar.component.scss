@@ -1,0 +1,22 @@
+.navbar {
+    display        : flex;
+    justify-content: center;
+    align-items    : center;
+    width          : 100%;
+    gap            : 3rem;
+    font-size      : 2rem;
+    padding-top    : 3rem;
+    position       : absolute;
+    top            : 0;
+    z-index: 10000;
+}
+
+.navbar__link,
+.navbar__link:active {
+    color          : var(--color-text-secondary);
+    text-decoration: none;
+}
+
+.active {
+    text-decoration: underline
+}

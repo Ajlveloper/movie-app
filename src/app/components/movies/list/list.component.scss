@@ -1,0 +1,12 @@
+.movie-list-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-rows: auto;
+    gap: 2rem;
+    margin: 5rem 0;
+}
+
+.movie-container {
+  display: flex;
+  flex-direction: column;
+}

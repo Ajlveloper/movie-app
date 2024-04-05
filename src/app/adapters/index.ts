@@ -1,0 +1,1 @@
+export * as MoviesAdapters from './movies.adapters'

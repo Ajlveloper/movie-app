@@ -1,0 +1,32 @@
+<div class="hero" [style.background-image]="'url(' + backdrop + ')'">
+  <div class="hero__content-container">
+    <div class="hero__content">
+      <div class="hero__description">
+        <div>
+          <p class="description__year description__text">
+            {{ year | date : "yyyy" }}
+          </p>
+          <h2 class="description__title description__text">
+            {{ title }}
+          </h2>
+          <div class="description__overview description__text">
+            {{ overview }}
+          </div>
+        </div>
+        @if (videoId) {
+        <div class="description__trailer-button">
+          <app-primary-button
+            (handleClickEmitter)="handleShowModal()"
+            [text]="'Watch trailer'"
+            [icon]="'play_arrow'"
+            [isFontLarge]="true"
+          />
+        </div>
+        }
+      </div>
+      <div class="hero__poster">
+        <img src="{{ poster }}" alt="poster" />
+      </div>
+    </div>
+  </div>
+</div>

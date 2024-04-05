@@ -1,0 +1,13 @@
+<ng-container>
+    <app-hero
+        [backdrop]="movies?.backdrop_path!"
+        [overview]="movies?.overview!"
+        [year]="movies?.release_date!"
+        [title]="movies?.title!"
+        [poster]="movies?.poster_path!"
+        [videoId]="videoIdByYoutube!"
+    />
+    <div class="container">
+        <app-movie-list />
+    </div>
+</ng-container>

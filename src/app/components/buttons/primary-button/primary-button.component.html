@@ -1,0 +1,12 @@
+<button
+  (click)="handleClick()"
+  [class.font-large]="isFontLarge"
+  [class.icon-only]="isOnlyIcon"
+  mat-flat-button
+>
+  @if(icon) {
+  <mat-icon>{{ icon }}</mat-icon>
+  } @if(text){
+  {{ text }}
+  }
+</button>
