@@ -1,4 +1,9 @@
-<nav class="navbar">
-    <a class="navbar__link" routerLink="/home" routerLinkActive="active" >Home</a>
-    <a class="navbar__link" routerLink="/catalogs" routerLinkActive="active" >Catalogs</a>
+<nav [class.navbar-movie_detail]="location.path().includes('movie')" class="default-navbar">
+    @if(location.path().includes('movie')) {
+        <app-outline-button  [text]="'Back'" [icon]="'chevron_left'" (handleClickEmitter)="handleBack()" />
+    }
+    <div>
+        <a class="navbar__link" routerLink="/home" routerLinkActive="active" >Home</a>
+        <a class="navbar__link" routerLink="/catalogs" routerLinkActive="active" >Catalogs</a>
+    </div>
 </nav>

@@ -1,0 +1,8 @@
+<button class="outline-button" (click)="handleClick()">
+    @if (icon) {
+        <mat-icon [fontIcon]="icon"></mat-icon>
+    }
+    <span>
+        {{text}}
+    </span>
+</button>

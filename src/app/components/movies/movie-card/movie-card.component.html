@@ -1,4 +1,6 @@
-<div class="movie-container">
-  <img class="movie-container__image" [class.image-default]="!image" [src]="image || '../assets/img/image-default.png'" [alt]="title" />
-</div>
-<h4 class="movie-container__title">{{ title }}</h4>
+<a [routerLink]="['/movie', movieId]" class="movie-container">
+  <div class="movie-container__image-container">
+    <img class="movie-container__image" [class.image-default]="!image" [src]="image || '../assets/img/image-default.png'" [alt]="title" />
+  </div>
+  <h4 class="movie-container__title">{{ title }}</h4>
+</a>

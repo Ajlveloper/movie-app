@@ -7,6 +7,7 @@ import { IMovieResult, IMovies, MediaType } from '../../models/movies.model';
 import { ApiService } from '../../services/api.service';
 import { ListMovieComponent } from '../../components/movies/list/list.component';
 import { MoviesAdapters } from '../../adapters';
+import { HeadingSectionComponent } from '../../components/titles/heading-section/heading-section.component';
 
 @Component({
   selector: 'app-home-page',
@@ -17,6 +18,7 @@ import { MoviesAdapters } from '../../adapters';
     NavbarComponent,
     HeroComponent,
     ListMovieComponent,
+    HeadingSectionComponent
   ],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.scss',

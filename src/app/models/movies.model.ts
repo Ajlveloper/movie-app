@@ -35,7 +35,8 @@ enum OriginalLanguage {
 
 interface IMovieAllAdapter {
     title: string,
-    image: string
+    image: string,
+    id: number,
 }
 
 export {

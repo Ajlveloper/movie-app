@@ -1,7 +1,7 @@
 <section class="movie-list-container">
     @for (movie of movies; track $index) {
         <div class="movie-container">
-          <app-movie-card [image]="movie.image" [title]="movie.title" />
+          <app-movie-card [movieId]="movie.id" [image]="movie.image" [title]="movie.title" />
         </div>
     }
 </section>

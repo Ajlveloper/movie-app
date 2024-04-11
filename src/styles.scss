@@ -16,6 +16,7 @@ body {
 
 :root {
   --color-primary: #1d1e22;
+  --color-secondary: black;
   --color-text-primary: #fefdfe;
   --color-text-secondary: #d5dee3;
   --color-button-primary: #d70903;
@@ -45,6 +46,10 @@ body {
   @include media-query-mxw(433px) {
     max-width: 24rem;
   }
+}
+
+.section {
+  margin-top: 5rem;
 }
 
 #trailer-modal {

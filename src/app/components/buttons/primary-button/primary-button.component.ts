@@ -15,9 +15,11 @@ import { MatIconModule } from '@angular/material/icon';
 export class PrimaryButtonComponent {
   @Input() text: string = '';
   @Input() icon: string = '';
-  @Input() isFontLarge:boolean = false;
-  @Input() isOnlyIcon:boolean = false;
-  @Input() class?:string;
+  @Input() isFontLarge: boolean = false;
+  @Input() isOnlyIcon: boolean = false;
+  @Input() isTextOnly: boolean = false;
+  @Input() isSecondary: boolean = false;
+  @Input() class?: string;
   @Output() handleClickEmitter = new EventEmitter();
 
 
