@@ -3,7 +3,7 @@
   [style.background-image]="'url(' + movieBackground + ')'"
 >
   <div class="movie-detail">
-    <h3 class="title">
+    <h3 class="title color-title">
       {{ movieDetail?.title }} ({{ movieDetail?.release_date | date : "yyyy" }})
     </h3>
     <div class="detail-container">
@@ -18,9 +18,71 @@
         ></app-primary-button>
       </div>
       <div class="detail-container__details">
-        <h3 class="detail-container__title title">
-          {{ movieDetail?.original_title }}
+        <h3 class="detail-container__title title color-title">
+          {{ movieDetail?.title }}
         </h3>
+        <h4 class="subtitle color-title" *ngIf="movieDetail?.tagline">
+          {{ movieDetail?.tagline }}
+        </h4>
+        <section class="detail-container__rating-container color-title">
+          <span> Sección de rating </span>
+        </section>
+        <section class="detail-container__details-section">
+          <div>
+            <h3 class="title color-title">Details</h3>
+            <div class="details-section__detail-info">
+              <div>
+                <span class="color-title">Director:</span>
+                <span class="color-title">Valor</span>
+              </div>
+              <div>
+                <span class="color-title">Writers:</span>
+                <span class="color-title">Valor</span>
+              </div>
+              <div>
+                <span class="color-title">Country:</span>
+                <span class="color-title">Valor</span>
+              </div>
+              <div>
+                <span class="color-title">Lenguage:</span>
+                <span class="color-title">Valor</span>
+              </div>
+              <div>
+                <span class="color-title">Release Date:</span>
+                <span class="color-title">Valor</span>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h3 class="title color-title">Cast</h3>
+            <div class="detail-container__cast-section">
+              <app-cast-profile
+                [image]="
+                  'https://image.tmdb.org/t/p/w780/rtxJfCCLdp1oi7bQ1ENVZRRkrJ5.jpg'
+                "
+                [text]="'Valor'"
+              />
+              <app-cast-profile
+                [image]="
+                  'https://image.tmdb.org/t/p/w780/rtxJfCCLdp1oi7bQ1ENVZRRkrJ5.jpg'
+                "
+                [text]="'Valor'"
+              />
+              <app-cast-profile
+                [image]="
+                  'https://image.tmdb.org/t/p/w780/rtxJfCCLdp1oi7bQ1ENVZRRkrJ5.jpg'
+                "
+                [text]="'Valor'"
+              />
+              <app-cast-profile
+                [image]="
+                  'https://image.tmdb.org/t/p/w780/rtxJfCCLdp1oi7bQ1ENVZRRkrJ5.jpg'
+                "
+                [text]="'Valor'"
+              />
+            </div>
+          </div>
+        </section>
       </div>
       <div class="detail-container__overview"></div>
     </div>

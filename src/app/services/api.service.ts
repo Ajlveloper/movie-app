@@ -30,6 +30,6 @@ export class ApiService {
   }
 
   getMovieById(movieId: number): Observable<IMovieDetail> {
-    return this.httpClient.get<IMovieDetail>(`${this.baseUrl}/movie/${movieId}?language=en-US`, OPTINOS)
+    return this.httpClient.get<IMovieDetail>(`${this.baseUrl}/movie/${movieId}?language=en-US&append_to_response=casts,videos,images,releases`, OPTINOS)
   }
 }
