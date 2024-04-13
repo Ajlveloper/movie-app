@@ -1,9 +1,14 @@
+import { NgIf } from '@angular/common';
 import { Component, Input } from '@angular/core';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-cast-profile',
   standalone: true,
-  imports: [],
+  imports: [
+    NgIf,
+    MatIconModule
+  ],
   templateUrl: './cast-profile.component.html',
   styleUrl: './cast-profile.component.scss'
 })

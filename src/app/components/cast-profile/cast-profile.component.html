@@ -3,7 +3,11 @@
     <img
       [src]="image"
       alt="profile-image"
+      *ngIf="image"
     />
+    <mat-icon *ngIf="!image" style="color: #fefefead">
+      account_circle
+    </mat-icon>
   </figure>
   <h4 class="profile-container__text">{{ text }}</h4>
 </div>

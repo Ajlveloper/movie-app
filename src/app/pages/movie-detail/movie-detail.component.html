@@ -25,66 +25,45 @@
           {{ movieDetail?.tagline }}
         </h4>
         <section class="detail-container__rating-container color-title">
-          <span> Sección de rating </span>
+          <!-- <span> Sección de rating </span> -->
+          <app-start-rating [starCount]="rating!" />
+          <span *ngIf="publicClasification">{{ publicClasification }}</span>
+          <span *ngIf="movieDetail?.runtime!"
+            >| {{ movieDetail?.runtime! | minutesToHoursAndMinutes }} |</span
+          >
+          <span *ngIf="!!movieDetail?.genres?.length"
+            >{{ movieDetail?.genres || [] | formatGenders }}.</span
+          >
         </section>
         <section class="detail-container__details-section">
           <div>
             <h3 class="title color-title">Details</h3>
+            @for (item of movieDetailsDataSection; track $index) {
             <div class="details-section__detail-info">
               <div>
-                <span class="color-title">Director:</span>
-                <span class="color-title">Valor</span>
-              </div>
-              <div>
-                <span class="color-title">Writers:</span>
-                <span class="color-title">Valor</span>
-              </div>
-              <div>
-                <span class="color-title">Country:</span>
-                <span class="color-title">Valor</span>
-              </div>
-              <div>
-                <span class="color-title">Lenguage:</span>
-                <span class="color-title">Valor</span>
-              </div>
-              <div>
-                <span class="color-title">Release Date:</span>
-                <span class="color-title">Valor</span>
+                <span class="color-title">{{ item.label }}:</span>
+                <span class="color-title">{{ item.value }}</span>
               </div>
             </div>
+            }
           </div>
-          <div>
+          <div *ngIf="!!profileCast.length">
             <h3 class="title color-title">Cast</h3>
             <div class="detail-container__cast-section">
-              <app-cast-profile
-                [image]="
-                  'https://image.tmdb.org/t/p/w780/rtxJfCCLdp1oi7bQ1ENVZRRkrJ5.jpg'
-                "
-                [text]="'Valor'"
-              />
-              <app-cast-profile
-                [image]="
-                  'https://image.tmdb.org/t/p/w780/rtxJfCCLdp1oi7bQ1ENVZRRkrJ5.jpg'
-                "
-                [text]="'Valor'"
-              />
-              <app-cast-profile
-                [image]="
-                  'https://image.tmdb.org/t/p/w780/rtxJfCCLdp1oi7bQ1ENVZRRkrJ5.jpg'
-                "
-                [text]="'Valor'"
-              />
-              <app-cast-profile
-                [image]="
-                  'https://image.tmdb.org/t/p/w780/rtxJfCCLdp1oi7bQ1ENVZRRkrJ5.jpg'
-                "
-                [text]="'Valor'"
-              />
+                <app-cast-profile
+                  [image]="cast.profile_path"
+                  [text]="cast.name"
+                  *ngFor="let cast of profileCast"
+                />
             </div>
           </div>
         </section>
       </div>
-      <div class="detail-container__overview"></div>
+      <div class="detail-container__overview">
+        <h3 class="title color-title">Story Line</h3>
+        <p class="detail-container__overview-paragraph ">{{movieDetail?.overview}}</p>
+      </div>
     </div>
   </div>
+  <!-- <div style="height: 700px; width: 100%;"></div> -->
 </main>

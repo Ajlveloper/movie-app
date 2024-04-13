@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-@import './assets/sass/_mixins.scss';
+@import "./assets/sass/_mixins.scss";
 
 * {
   margin: 0;
@@ -28,7 +28,11 @@ body {
   background-color: var(--color-primary);
 }
 
-
+button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
 
 .container {
   max-width: 120rem;

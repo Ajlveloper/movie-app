@@ -1,24 +1,31 @@
 .profile-container {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    
-    & > .profile-container__image {
-        height: 30px;
-        width: 30px;
-        & > img {
-            height: 100%;
-            width: 100%;
-            object-fit: cover;
-        }
-        &, & > img {
-            border-radius: 50%;
-        }
-    }
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
 
-    & > .profile-container__text {
-        font-size: 1.35rem;
-        color: var(--color-text-primary);
-        font-weight: normal;
+  & > .profile-container__image {
+    height: 30px;
+    width: 30px;
+    & > img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
     }
+    & > .mat-icon {
+      color: #fefefead;
+      width: 30px;
+      height: 30px;
+      font-size: 30px;
+    }
+    &,
+    & > img {
+      border-radius: 50%;
+    }
+  }
+
+  & > .profile-container__text {
+    font-size: 1.35rem;
+    color: var(--color-text-primary);
+    font-weight: normal;
+  }
 }

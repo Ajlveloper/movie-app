@@ -1,0 +1,9 @@
+<button
+  *ngFor="let item of ratingCount; let i = index"
+  class="star-button"
+  [class.star-border]="showIcon(i+1)"
+  mat-icon-button
+  [disabled]="disbaled"
+>
+  <mat-icon> star </mat-icon>
+</button>
