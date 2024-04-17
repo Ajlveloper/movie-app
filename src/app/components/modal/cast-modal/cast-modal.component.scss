@@ -1,0 +1,83 @@
+:host ::ng-deep mat-dialog-content {
+  background-color: var(--color-primary);
+  & > .cast-title {
+    text-align: center;
+    font-weight: normal;
+    font-size: 3.5rem;
+    color: var(--color-text-primary);
+    margin-bottom: 1rem;
+  }
+  & > .cast-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+:host ::ng-deep .cast-list {
+  & .profile-container {
+    display: grid;
+    grid-template-columns: max-content max(214px);
+    place-content: center;
+    gap: 2.5rem;
+
+    &::-webkit-scrollbar {
+      width: 2rem;
+    }
+  }
+  & .profile-container figure,
+  .profile-container figure mat-icon {
+    height: 120px !important;
+    width: 106px !important;
+  }
+  & .profile-container figure mat-icon {
+    font-size: 112px !important;
+  }
+  & .profile-container .profile-container__text {
+    font-size: 2.35rem;
+  }
+}
+
+:host ::ng-deep mat-dialog-content {
+  border-radius: 7px;
+}
+
+:host ::ng-deep mat-dialog-content::-webkit-scrollbar {
+  width: 12px; /* width of the entire scrollbar */
+}
+
+:host ::ng-deep mat-dialog-content::-webkit-scrollbar-track {
+  background-color: var(--color-secondary);
+}
+
+:host ::ng-deep mat-dialog-content::-webkit-scrollbar-thumb {
+  background-color: var(--color-primary);
+  border-radius: 7px;
+  //   border: 3px solid orange;
+}
+
+:host ::ng-deep .mat-dialog-container .mat-mdc-dialog-surface {
+  background: red !important;
+}
+
+:host ::ng-deep .mat-mdc-icon-button {
+  height: 0;
+  width: max-content;
+  background-color: transparent !important;
+  color: var(--color-text-primary);
+  padding: 0;
+  & > mat-icon {
+    font-size: 3rem;
+    height: 3rem;
+    width: 3rem;
+  }
+}
+
+.cast-button-close-container {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  position: sticky;
+  top: 12px;
+  right: 0;
+}

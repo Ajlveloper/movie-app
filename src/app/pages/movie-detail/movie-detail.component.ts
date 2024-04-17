@@ -10,6 +10,9 @@ import { StartRatingComponent } from '../../components/start-rating/start-rating
 import { MinutesToHoursAndMinutesPipe } from '../../adapters/pipes/minutes-to-hours-and-minutes/minutes-to-hours-and-minutes.pipe';
 import { FormatGendersPipe } from '../../adapters/pipes/format-genres/format-genders.pipe';
 import { FindByMovieCountryPipe } from '../../adapters/pipes/find-by-movie-country/find-by-movie-country.pipe';
+import { OutlineButtonComponent } from '../../components/buttons/outline-button/outline-button.component';
+import { MatDialog } from '@angular/material/dialog';
+import { CastModalComponent } from '../../components/modal/cast-modal/cast-modal.component';
 
 @Component({
   selector: 'app-movie-detail',
@@ -25,7 +28,8 @@ import { FindByMovieCountryPipe } from '../../adapters/pipes/find-by-movie-count
     FormatGendersPipe,
     FindByMovieCountryPipe,
     UpperCasePipe,
-    NgFor
+    NgFor,
+    OutlineButtonComponent,
   ],
   templateUrl: './movie-detail.component.html',
   styleUrl: './movie-detail.component.scss'
@@ -33,6 +37,7 @@ import { FindByMovieCountryPipe } from '../../adapters/pipes/find-by-movie-count
 export class MovieDetailComponent implements OnInit {
   route = inject(ActivatedRoute)
   service = inject(ApiService)
+  dialog = inject(MatDialog);
   movieBackground?: string;
   movieImage?: string;
   movieDetail?: IMovieDetail
@@ -54,20 +59,43 @@ export class MovieDetailComponent implements OnInit {
           this.movieDetail = data;
           this.rating = MovieHandlerAdapter.formatRating(data.vote_average);
           this.publicClasification = MovieHandlerAdapter.getPublicClasification(data.releases);
-          const detailsValues: Record<string, string | Date> = {
+          const detailsValues: Record<string, { label: string, value: string | Date }> = {
             ...MovieHandlerAdapter.findByCrew(data.casts)!,
-            country: MovieHandlerAdapter.findByMovieCountry(data?.production_countries),
-            original_language: data.original_language.toLocaleUpperCase(),
-            release_date: data.release_date,
+            country: {
+              value: MovieHandlerAdapter.findByMovieCountry(data?.production_countries),
+              label: 'Country',
+            },
+            original_language: {
+              value: data.original_language.toLocaleUpperCase(),
+              label: 'Language',
+            },
+            release_date: {
+              value: data.release_date,
+              label: 'Release Date'
+            },
           }
-          this.movieDetailsDataSection = Object.keys(detailsValues).map(data => ({ label: data, value: detailsValues[data] }));
-          this.profileCast = MovieHandlerAdapter.formatCastProfile(data.casts).slice(0, 4);
-          console.log(data, MovieHandlerAdapter.formatCastProfile(data.casts));
+          this.movieDetailsDataSection = Object.keys(detailsValues).map(data => ({ label: detailsValues[data].label, value: detailsValues[data].value }));
+          this.profileCast = MovieHandlerAdapter.formatCastProfile(data.casts);
         },
         complete: () => {
 
         }
       })
+    })
+  }
+
+  showCastModal() {
+    console.log(this.profileCast);
+    
+    this.dialog.open(CastModalComponent, {
+      width: '600px',
+      height: '600px',
+      maxHeight: '600px',
+      panelClass: 'cast-modal',
+      data: {
+        profileCast: this.profileCast,
+        text: 'Cast'
+      }
     })
   }
 }

@@ -50,18 +50,21 @@
           <div *ngIf="!!profileCast.length">
             <h3 class="title color-title">Cast</h3>
             <div class="detail-container__cast-section">
-                <app-cast-profile
-                  [image]="cast.profile_path"
-                  [text]="cast.name"
-                  *ngFor="let cast of profileCast"
-                />
+              <app-cast-profile
+                [image]="cast.profile_path"
+                [text]="cast.name"
+                *ngFor="let cast of profileCast.slice(0, 4)"
+              />
+              <app-outline-button class="detail-container__show-more-button"  [text]="'Show More'" [icon]="'add_circle'" (handleClickEmitter)="showCastModal()" />
             </div>
           </div>
         </section>
       </div>
       <div class="detail-container__overview">
         <h3 class="title color-title">Story Line</h3>
-        <p class="detail-container__overview-paragraph ">{{movieDetail?.overview}}</p>
+        <p class="detail-container__overview-paragraph">
+          {{ movieDetail?.overview }}
+        </p>
       </div>
     </div>
   </div>

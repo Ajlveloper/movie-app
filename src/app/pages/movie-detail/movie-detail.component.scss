@@ -1,15 +1,10 @@
 .hero-detail {
-  /* display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center; */
   padding-top: 5rem;
   height: 100vh;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
   position: relative;
-  z-index: -1;
   box-shadow: inset -1px -38px 49px -2px rgb(29, 30, 34);
   &::before {
     display: block;
@@ -149,5 +144,14 @@
       font-size: 2rem;
       font-weight: 100;
     }
+  }
+}
+
+
+:host ::ng-deep .detail-container__show-more-button  {
+  margin-top: 1rem;
+  & > .outline-button {
+    gap: 1rem;
+    color: #858383;
   }
 }

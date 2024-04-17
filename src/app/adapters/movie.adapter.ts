@@ -13,11 +13,15 @@ class MovieHandlerAdapter {
     static findByCrew(casts: IMovieDetail['casts']) {
         if (!casts) return null;
         const { crew } = casts;
-        console.log(crew.filter(data => data.department === 'Writing'));
-        
         return {
-            director: this.findCrewByKeys(crew, 'Directing', 'director', 'find'),
-            writers: this.findCrewByKeys(crew, 'Writing', 'Writer', 'filter') || this.findCrewByKeys(crew, 'Writing', 'Novel', 'filter') || this.findCrewByKeys(crew, 'Writing', 'Screenplay', 'filter')
+            director: {
+                value: this.findCrewByKeys(crew, 'Directing', 'director', 'find'),
+                label: 'Director',
+            },
+            writers: {
+                value: this.findCrewByKeys(crew, 'Writing', 'Writer', 'filter') || this.findCrewByKeys(crew, 'Writing', 'Novel', 'filter') || this.findCrewByKeys(crew, 'Writing', 'Screenplay', 'filter'),
+                label: 'Writers',
+            }, 
         }
 
     }
