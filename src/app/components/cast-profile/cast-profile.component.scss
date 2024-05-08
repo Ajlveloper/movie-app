@@ -1,7 +1,9 @@
+
 .profile-container {
   display: flex;
   align-items: center;
   gap: 1.5rem;
+
 
   & > .profile-container__image {
     height: 30px;
@@ -19,7 +21,7 @@
     }
     &,
     & > img {
-      border-radius: 50%;
+      border-radius: 150px;
     }
   }
 

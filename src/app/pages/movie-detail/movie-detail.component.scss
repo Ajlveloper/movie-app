@@ -1,3 +1,5 @@
+@import "../../../assets/sass/mixins.scss";
+
 .hero-detail {
   padding-top: 5rem;
   height: 100vh;
@@ -31,6 +33,18 @@
     margin-top: 31vw;
     z-index: 10;
     padding-bottom: 4rem;
+
+    & {
+      @include media-query-mxw(1024px) {
+        margin-top: 58vw;
+      }
+      @include media-query-mxw(768px) {
+        margin-top: 92vw;
+      }
+      @include media-query-mxw(425px) {
+        margin-top: 140vw;
+      }
+    }
   }
 }
 
@@ -63,9 +77,16 @@
   border-top: var(--color-text-primary) 1.5px solid;
   position: relative;
   z-index: 20;
+  @include media-query-mxw(425px) {
+    grid-template-rows: repeat(3, max-content);
+  }
   & > .detail-container__poster {
     grid-column: 1 / 2;
     grid-row: 1 / 3;
+    @include media-query-mxw(425px) {
+      grid-column: 1 / 4;
+      grid-row: 1 / 3;
+    }
     & > .detail-container__poster__image {
       height: 400px;
       max-height: 400px;
@@ -82,6 +103,11 @@
   & > .detail-container__details {
     grid-column: 2 / 3;
     grid-row: 1 / 2;
+    @include media-query-mxw(425px) {
+      grid-column: 1 / 4;
+      grid-row: 3 / 4;
+      margin-top: 1.5rem;
+    }
     & > .detail-container__title {
       padding: 0;
     }
@@ -93,10 +119,18 @@
       border-top: var(--color-text-primary) 1.5px solid;
       padding: 1rem 0;
       font-size: 1.5rem;
+
+      @include media-query-mxw(425px) {
+        flex-direction: column;
+        align-items: flex-start;
+      }
     }
     & > .detail-container__details-section {
       display: flex;
       gap: 1.5rem;
+      @include media-query-mxw(425px) {
+        flex-direction: column;
+      }
       & > div {
         flex-basis: 50%;
         & > .title {
@@ -136,6 +170,11 @@
   & > .detail-container__overview {
     grid-column: 2 / 4;
     grid-row: 2 / 3;
+    @include media-query-mxw(425px) {
+      grid-column: 1 / 4;
+      grid-row: 4 / 5;
+      margin-top: 1rem;
+    }
     & > .title {
       padding-top: 0;
     }
@@ -143,15 +182,37 @@
       color: var(--color-text-primary);
       font-size: 2rem;
       font-weight: 100;
+      @include media-query-mxw(425px) {
+        font-size: 1.8rem;
+      }
     }
   }
 }
 
-
-:host ::ng-deep .detail-container__show-more-button  {
+:host ::ng-deep .detail-container__show-more-button {
   margin-top: 1rem;
   & > .outline-button {
     gap: 1rem;
     color: #858383;
+  }
+}
+
+:host ::ng-deep .hero-detail__trailer-play {
+  position: absolute;
+  top: 41vh;
+  left: 50vw;
+  z-index: 10;
+
+  @include media-query-mxw(427px) {
+    top: 39%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  & > .outline-button .mat-icon {
+    color: var(--color-text-primary);
+    height: 76px;
+    width: 86px;
+    font-size: 76px;
   }
 }

@@ -13,10 +13,6 @@ import { OutlineButtonComponent } from '../buttons/outline-button/outline-button
     RouterLinkActive,
     OutlineButtonComponent
   ],
-  providers: [
-    Location,
-    { provide: LocationStrategy, useClass: PathLocationStrategy }
-  ],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss'
 })

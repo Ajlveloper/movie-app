@@ -65,6 +65,13 @@ button {
   & .mdc-dialog__surface {
     border-radius: 7px;
   }
+
+  @include media-query-mxw(427px) {
+    & mat-dialog-content {
+      width: 90%;
+      margin: 0 auto;
+    }
+  }
 }
 
 .cast-modal .mat-mdc-dialog-container .mdc-dialog__surface  {

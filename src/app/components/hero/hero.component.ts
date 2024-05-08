@@ -3,6 +3,7 @@ import { Component, Input, inject } from '@angular/core';
 import { PrimaryButtonComponent } from '../buttons/primary-button/primary-button.component';
 import { MatDialog, MatDialogConfig, MatDialogModule } from '@angular/material/dialog';
 import { TrailerModalComponent } from '../modal/trailer-modal/trailer-modal.component';
+import { ModalService } from '../../services/modal/modal.service';
 
 @Component({
   selector: 'app-hero',
@@ -24,22 +25,14 @@ export class HeroComponent {
   @Input() poster: string = '';
   @Input() videoId?: string;
   modal = inject(MatDialog)
+  modalService = inject(ModalService);
 
 
-  handleShowModal() {    
-    const dialogConfig = new MatDialogConfig();
-    dialogConfig.maxWidth = 900;
-    dialogConfig.width = '100%';
-    dialogConfig.panelClass = 'trailer-modal';
-    dialogConfig.id = 'trailer-modal';
-    dialogConfig.disableClose = true;
-    dialogConfig.data = {
-      videoId: this.videoId
-    }
-    this.modal.open(TrailerModalComponent, dialogConfig)
+  handleShowModal() {
+    this.modalService.handleShowModal(this.videoId!)
   }
 
   handleClose() {
-    this.modal.closeAll();
+    this.modalService.handleClose();
   }
 }

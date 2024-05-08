@@ -13,6 +13,7 @@ import { FindByMovieCountryPipe } from '../../adapters/pipes/find-by-movie-count
 import { OutlineButtonComponent } from '../../components/buttons/outline-button/outline-button.component';
 import { MatDialog } from '@angular/material/dialog';
 import { CastModalComponent } from '../../components/modal/cast-modal/cast-modal.component';
+import { ModalService } from '../../services/modal/modal.service';
 
 @Component({
   selector: 'app-movie-detail',
@@ -38,6 +39,7 @@ export class MovieDetailComponent implements OnInit {
   route = inject(ActivatedRoute)
   service = inject(ApiService)
   dialog = inject(MatDialog);
+  modalService = inject(ModalService)
   movieBackground?: string;
   movieImage?: string;
   movieDetail?: IMovieDetail
@@ -46,6 +48,7 @@ export class MovieDetailComponent implements OnInit {
   genres?: string;
   movieDetailsDataSection?: IMovieDetailsSection[];
   profileCast: IProfileCast[] = []
+  videoId: string = '';
 
   ngOnInit(): void {
     this.route.params.subscribe(param => {
@@ -56,6 +59,7 @@ export class MovieDetailComponent implements OnInit {
           const { MovieHandlerAdapter } = MovieAdapter
           this.movieBackground = MoviesHandlerAdapter.formatImage(data.backdrop_path);
           this.movieImage = MoviesHandlerAdapter.formatImage(data.poster_path, 'w780');
+          this.videoId = data.videos.results.find(video => video.key)?.key || '';
           this.movieDetail = data;
           this.rating = MovieHandlerAdapter.formatRating(data.vote_average);
           this.publicClasification = MovieHandlerAdapter.getPublicClasification(data.releases);
@@ -85,8 +89,6 @@ export class MovieDetailComponent implements OnInit {
   }
 
   showCastModal() {
-    console.log(this.profileCast);
-    
     this.dialog.open(CastModalComponent, {
       width: '600px',
       height: '600px',
@@ -97,5 +99,9 @@ export class MovieDetailComponent implements OnInit {
         text: 'Cast'
       }
     })
+  }
+
+  hadleOpenModal() {
+    this.modalService.handleShowModal(this.videoId);
   }
 }

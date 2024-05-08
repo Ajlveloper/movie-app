@@ -2,6 +2,7 @@
   class="hero-detail"
   [style.background-image]="'url(' + movieBackground + ')'"
 >
+  <app-outline-button class="hero-detail__trailer-play" [icon]="'play_circle'" (handleClickEmitter)="hadleOpenModal()" />
   <div class="movie-detail">
     <h3 class="title color-title">
       {{ movieDetail?.title }} ({{ movieDetail?.release_date | date : "yyyy" }})
@@ -25,7 +26,6 @@
           {{ movieDetail?.tagline }}
         </h4>
         <section class="detail-container__rating-container color-title">
-          <!-- <span> Sección de rating </span> -->
           <app-start-rating [starCount]="rating!" />
           <span *ngIf="publicClasification">{{ publicClasification }}</span>
           <span *ngIf="movieDetail?.runtime!"
